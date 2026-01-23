@@ -1,0 +1,478 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Resume | Hideki Obote</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-yellow: #d29922;
+            --border: #30363d;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Source Sans 3', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 40px 24px;
+        }
+
+        .nav {
+            margin-bottom: 32px;
+        }
+
+        .nav__back {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .nav__back:hover { text-decoration: underline; }
+
+        .header {
+            margin-bottom: 40px;
+            padding-bottom: 24px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .header__name {
+            font-size: 2.2rem;
+            font-weight: 600;
+            margin-bottom: 6px;
+        }
+
+        .header__title {
+            font-size: 1.1rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+        }
+
+        .header__contact {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .header__contact a {
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .section {
+            margin-bottom: 40px;
+        }
+
+        .section__title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+            margin-bottom: 16px;
+            padding-bottom: 8px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .summary {
+            color: var(--text-secondary);
+            font-size: 1rem;
+            margin-bottom: 20px;
+        }
+
+        .summary strong {
+            color: var(--text-primary);
+        }
+
+        .notice {
+            background: var(--bg-secondary);
+            border-left: 3px solid var(--accent-green);
+            padding: 14px 18px;
+            margin-bottom: 12px;
+            border-radius: 4px;
+        }
+
+        .notice--yellow { border-left-color: var(--accent-yellow); }
+
+        .notice__title {
+            font-weight: 600;
+            font-size: 0.9rem;
+            margin-bottom: 4px;
+        }
+
+        .notice__text {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .skills-table {
+            display: grid;
+            gap: 10px;
+        }
+
+        .skills-row {
+            display: grid;
+            grid-template-columns: 120px 1fr;
+            gap: 12px;
+        }
+
+        .skills-row__label {
+            font-weight: 500;
+            color: var(--text-primary);
+            font-size: 0.9rem;
+        }
+
+        .skills-row__value {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .cert-list {
+            list-style: none;
+        }
+
+        .cert-list li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .cert-list li::before {
+            content: '✓';
+            position: absolute;
+            left: 0;
+            color: var(--accent-green);
+        }
+
+        .experience {
+            margin-bottom: 28px;
+        }
+
+        .experience__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-bottom: 6px;
+        }
+
+        .experience__title {
+            font-size: 1rem;
+            font-weight: 600;
+        }
+
+        .experience__date {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .experience__tech {
+            font-size: 0.85rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+        }
+
+        .experience__list {
+            list-style: none;
+        }
+
+        .experience__list li {
+            padding: 4px 0 4px 16px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .experience__list li::before {
+            content: '—';
+            position: absolute;
+            left: 0;
+            color: var(--border);
+        }
+
+        .project {
+            margin-bottom: 16px;
+        }
+
+        .project__name {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .project__name span {
+            font-weight: 400;
+            color: var(--text-secondary);
+        }
+
+        .project__desc {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .education__school {
+            font-weight: 600;
+            font-size: 0.95rem;
+        }
+
+        .education__detail {
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 10px;
+        }
+
+        .education__note {
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+            margin-bottom: 14px;
+        }
+
+        .education__origin {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 14px 18px;
+            border-radius: 6px;
+            font-style: italic;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .info-list {
+            list-style: none;
+        }
+
+        .info-list li {
+            padding: 6px 0 6px 20px;
+            position: relative;
+            color: var(--text-secondary);
+            font-size: 0.9rem;
+        }
+
+        .info-list li::before {
+            content: '•';
+            position: absolute;
+            left: 6px;
+            color: var(--accent);
+        }
+
+        .info-list li strong {
+            color: var(--text-primary);
+        }
+
+        .download {
+            margin-top: 40px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+        }
+
+        .download__btn {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: var(--accent);
+            color: var(--bg-primary);
+            padding: 12px 24px;
+            border-radius: 6px;
+            text-decoration: none;
+            font-weight: 600;
+            font-size: 0.9rem;
+            transition: opacity 0.2s;
+        }
+
+        .download__btn:hover { opacity: 0.85; }
+
+        @media (max-width: 600px) {
+            .skills-row { grid-template-columns: 1fr; gap: 2px; }
+            .experience__header { flex-direction: column; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <nav class="nav">
+            <a href="index.html" class="nav__back">← Back to Home</a>
+        </nav>
+
+        <header class="header">
+            <h1 class="header__name">Hideki Obote</h1>
+            <p class="header__title">Senior Software Engineer | 35+ Years Experience</p>
+            <p class="header__contact">
+                Kawaguchi, Saitama, Japan |
+                <a href="https://github.com/obott9">github.com/obott9</a> |
+                <a href="mailto:obott9.dev@gmail.com">obott9.dev@gmail.com</a>
+            </p>
+        </header>
+
+        <section class="section">
+            <h2 class="section__title">Professional Summary</h2>
+            <p class="summary">
+                <strong>Self-taught software engineer with 35+ years</strong> of hands-on development experience spanning embedded systems, mobile applications, and enterprise software. My journey began in the early 1980s when I went to Akihabara to buy an NEC PC-8801 but came home with a <strong>PC-8001 on a loan</strong> instead. Later, I taught myself C programming on a <strong>Sharp X68000</strong>. From those humble beginnings, I progressed through assembly language and embedded firmware to modern cloud-based enterprise systems. Proven track record of <strong>rescuing failing projects</strong> and delivering cross-platform solutions.
+            </p>
+
+            <div class="notice">
+                <p class="notice__title">📝 Communication</p>
+                <p class="notice__text">Written English only (Slack, email, GitHub). No voice/video calls — I deliver through clear documentation and code.</p>
+            </div>
+
+            <div class="notice notice--yellow">
+                <p class="notice__title">💰 Why Hire Me?</p>
+                <p class="notice__text">With the current weak Japanese Yen, you get senior-level expertise (35+ years) at a fraction of typical US/EU rates.</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Technical Skills</h2>
+            <div class="skills-table">
+                <div class="skills-row">
+                    <span class="skills-row__label">Languages:</span>
+                    <span class="skills-row__value">C, C++, C#, Swift, Objective-C, Java, JavaScript, PHP, VB, Assembly</span>
+                </div>
+                <div class="skills-row">
+                    <span class="skills-row__label">Platforms:</span>
+                    <span class="skills-row__value">Windows, macOS, Linux, iOS, Android, PalmOS, MS-DOS</span>
+                </div>
+                <div class="skills-row">
+                    <span class="skills-row__label">Frameworks:</span>
+                    <span class="skills-row__value">.NET Framework, SwiftUI, WinForms, WPF, Xcode, Eclipse</span>
+                </div>
+                <div class="skills-row">
+                    <span class="skills-row__label">Specialties:</span>
+                    <span class="skills-row__value">Cross-platform desktop apps, Embedded systems, Serial communication (RS232C), TCP/IP, Project recovery</span>
+                </div>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Certifications</h2>
+            <ul class="cert-list">
+                <li>Class 2 Information Technology Engineer Examination (Japan)</li>
+                <li>Class 1 Information Technology Engineer Examination (Japan)</li>
+                <li>Microcomputer Application Engineer Examination (Japan)</li>
+            </ul>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Selected Project Experience</h2>
+
+            <div class="experience">
+                <div class="experience__header">
+                    <h3 class="experience__title">Enterprise Power Company - New Payment System</h3>
+                    <span class="experience__date">Nov 2024 – Jan 2025</span>
+                </div>
+                <p class="experience__tech">Java, PostgreSQL, Linux, Windows</p>
+                <ul class="experience__list">
+                    <li>Led development of advance pilot project for new payment collection system</li>
+                    <li>Worked as System Engineer with team of 30 developers</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="experience__header">
+                    <h3 class="experience__title">Securities Company - Restricted Stock System</h3>
+                    <span class="experience__date">May 2023 – Feb 2024</span>
+                </div>
+                <p class="experience__tech">Java, RAD, IBM, Oracle</p>
+                <ul class="experience__list">
+                    <li>Developed new employee stock ownership and restricted stock management system</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="experience__header">
+                    <h3 class="experience__title">Telecom - Disaster Prevention System Migration</h3>
+                    <span class="experience__date">Nov 2021 – May 2022</span>
+                </div>
+                <p class="experience__tech">Java, Eclipse, AWS, RedHat 7</p>
+                <ul class="experience__list">
+                    <li>Migrated legacy disaster prevention wireless system to AWS cloud infrastructure</li>
+                    <li>Coordinated with hardware manufacturers on system replacement</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="experience__header">
+                    <h3 class="experience__title">Legal Database - Cross-Platform Mobile Apps</h3>
+                    <span class="experience__date">2006 – 2020</span>
+                </div>
+                <p class="experience__tech">iOS (Swift/Objective-C), Android, Brew SDK, Oracle</p>
+                <ul class="experience__list">
+                    <li>Developed legal precedent search system across multiple mobile platforms</li>
+                    <li>Migrated from feature phones (Brew) to smartphones (iOS/Android) as technology evolved</li>
+                </ul>
+            </div>
+
+            <div class="experience">
+                <div class="experience__header">
+                    <h3 class="experience__title">Automotive - ABS Hydraulic Unit Test Systems</h3>
+                    <span class="experience__date">1989 – 1990</span>
+                </div>
+                <p class="experience__tech">C, Assembly, MS-DOS, RS232C, PIO, A/D conversion</p>
+                <ul class="experience__list">
+                    <li>Developed automated test equipment for automotive ABS hydraulic units</li>
+                    <li>Built data acquisition systems with real-time hardware control</li>
+                </ul>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Personal Projects</h2>
+
+            <div class="project">
+                <p class="project__name">IMEIndicatorClock <span>— macOS menu bar app (Swift/SwiftUI)</span></p>
+                <p class="project__desc">Input method status indicator with analog clock display. Supports 18+ languages. github.com/obott9/IMEIndicatorClock</p>
+            </div>
+
+            <div class="project">
+                <p class="project__name">IMEIndicatorClockW <span>— Windows desktop app (C#/.NET 8)</span></p>
+                <p class="project__desc">Windows version with same functionality. Demonstrates cross-platform development skills. github.com/obott9/IMEIndicatorClockW</p>
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Education</h2>
+            <p class="education__school">Wakayama Prefectural Wakayama Technical High School</p>
+            <p class="education__detail">Mechanical Engineering | 1981</p>
+            <p class="education__note">No formal computer science education. All software development skills are entirely self-taught.</p>
+            <div class="education__origin">
+                <strong>Origin Story:</strong> In the early 1980s, I traveled to Akihabara (Tokyo's electronics district) planning to buy an NEC PC-8801, but ended up purchasing an NEC PC-8001 on installment payments instead. Years later, I acquired a Sharp X68000 and taught myself C programming. This self-directed curiosity has driven my entire 35+ year career in software development.
+            </div>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">Additional Information</h2>
+            <ul class="info-list">
+                <li>Native Japanese speaker with strong written English skills</li>
+                <li>Experienced in rescuing and recovering troubled/failing projects</li>
+                <li><strong>Due to personal circumstances in Japan, I am exclusively seeking remote work opportunities with international companies</strong></li>
+                <li>Open to contract-to-hire opportunities</li>
+            </ul>
+        </section>
+
+        <div class="download">
+            <a href="Hideki_Obote_Resume_EN.pdf" class="download__btn" download>⬇️ Download PDF Version</a>
+        </div>
+    </div>
+</body>
+</html>

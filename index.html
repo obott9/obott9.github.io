@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Hideki Obote | Senior Software Engineer</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=JetBrains+Mono:wght@400;500;600&family=Source+Sans+3:wght@300;400;500;600&display=swap" rel="stylesheet">
+    <style>
+        :root {
+            --bg-primary: #0d1117;
+            --bg-secondary: #161b22;
+            --bg-card: #21262d;
+            --text-primary: #e6edf3;
+            --text-secondary: #8b949e;
+            --accent: #58a6ff;
+            --accent-green: #3fb950;
+            --accent-yellow: #d29922;
+            --border: #30363d;
+            --font-mono: 'JetBrains Mono', monospace;
+            --font-sans: 'Source Sans 3', sans-serif;
+        }
+
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+
+        body {
+            font-family: var(--font-sans);
+            background: var(--bg-primary);
+            color: var(--text-primary);
+            line-height: 1.6;
+            min-height: 100vh;
+        }
+
+        .container {
+            max-width: 860px;
+            margin: 0 auto;
+            padding: 60px 24px;
+        }
+
+        .header {
+            margin-bottom: 48px;
+            animation: fadeIn 0.6s ease-out;
+        }
+
+        .header__tag {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent-green);
+            margin-bottom: 12px;
+        }
+
+        .header__name {
+            font-size: 2.8rem;
+            font-weight: 600;
+            margin-bottom: 8px;
+            letter-spacing: -0.02em;
+        }
+
+        .header__title {
+            font-size: 1.15rem;
+            color: var(--text-secondary);
+            font-weight: 400;
+        }
+
+        .stats {
+            display: flex;
+            gap: 32px;
+            margin: 32px 0;
+            padding: 20px 0;
+            border-top: 1px solid var(--border);
+            border-bottom: 1px solid var(--border);
+            animation: fadeIn 0.6s ease-out 0.1s both;
+        }
+
+        .stat__number {
+            font-family: var(--font-mono);
+            font-size: 1.6rem;
+            font-weight: 600;
+            color: var(--accent);
+        }
+
+        .stat__label {
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+        }
+
+        .about {
+            margin-bottom: 40px;
+            animation: fadeIn 0.6s ease-out 0.2s both;
+        }
+
+        .about__text {
+            color: var(--text-secondary);
+            font-size: 1.05rem;
+            max-width: 680px;
+        }
+
+        .about__text strong {
+            color: var(--text-primary);
+        }
+
+        .notice {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-left: 3px solid var(--accent);
+            padding: 16px 20px;
+            margin: 20px 0;
+            border-radius: 6px;
+        }
+
+        .notice--green { border-left-color: var(--accent-green); }
+        .notice--yellow { border-left-color: var(--accent-yellow); }
+
+        .notice__title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 6px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .notice--green .notice__title { color: var(--accent-green); }
+        .notice--yellow .notice__title { color: var(--accent-yellow); }
+
+        .notice__text {
+            color: var(--text-secondary);
+            font-size: 0.95rem;
+        }
+
+        .cards {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 16px;
+            margin: 40px 0;
+            animation: fadeIn 0.6s ease-out 0.3s both;
+        }
+
+        .card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 6px;
+            padding: 20px;
+            text-decoration: none;
+            color: inherit;
+            transition: all 0.2s ease;
+        }
+
+        .card:hover {
+            border-color: var(--accent);
+            background: var(--bg-card);
+        }
+
+        .card__icon { font-size: 1.3rem; margin-bottom: 12px; }
+        .card__title { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
+        .card__desc { font-size: 0.85rem; color: var(--text-secondary); }
+
+        .skills {
+            margin: 40px 0;
+            animation: fadeIn 0.6s ease-out 0.4s both;
+        }
+
+        .skills__title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+            margin-bottom: 12px;
+            text-transform: uppercase;
+            letter-spacing: 0.05em;
+        }
+
+        .skills__list {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+        }
+
+        .skill {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 6px 12px;
+            border-radius: 4px;
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        .footer {
+            margin-top: 60px;
+            padding-top: 24px;
+            border-top: 1px solid var(--border);
+            animation: fadeIn 0.6s ease-out 0.5s both;
+        }
+
+        .footer__links {
+            display: flex;
+            gap: 20px;
+            flex-wrap: wrap;
+        }
+
+        .footer__link {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--accent);
+            text-decoration: none;
+        }
+
+        .footer__link:hover { text-decoration: underline; }
+
+        .footer__copy {
+            margin-top: 16px;
+            font-size: 0.8rem;
+            color: var(--text-secondary);
+        }
+
+        @keyframes fadeIn {
+            from { opacity: 0; transform: translateY(12px); }
+            to { opacity: 1; transform: translateY(0); }
+        }
+
+        @media (max-width: 600px) {
+            .stats { flex-direction: column; gap: 16px; }
+            .cards { grid-template-columns: 1fr; }
+            .header__name { font-size: 2rem; }
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <header class="header">
+            <p class="header__tag">$ whoami</p>
+            <h1 class="header__name">Hideki Obote</h1>
+            <p class="header__title">Senior Software Engineer | Swift & C# | macOS & Windows</p>
+        </header>
+
+        <div class="stats">
+            <div class="stat">
+                <div class="stat__number">35+</div>
+                <div class="stat__label">Years Experience</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">X68000</div>
+                <div class="stat__label">Self-Taught Since</div>
+            </div>
+            <div class="stat">
+                <div class="stat__number">100%</div>
+                <div class="stat__label">Remote Ready</div>
+            </div>
+        </div>
+
+        <section class="about">
+            <p class="about__text">
+                My journey began in the early 1980s when I went to <strong>Akihabara</strong> to buy a PC-8801 but came home with a <strong>PC-8001</strong> on a loan instead. Later, I taught myself C programming on a <strong>Sharp X68000</strong>. From those humble beginnings, I've built everything from embedded automotive systems to enterprise cloud applications.
+            </p>
+
+            <div class="notice notice--green">
+                <p class="notice__title">📝 Communication</p>
+                <p class="notice__text">Written English only (Slack, email, GitHub). No voice/video calls — I deliver through clear documentation and code.</p>
+            </div>
+
+            <div class="notice notice--yellow">
+                <p class="notice__title">💰 Why Hire Me?</p>
+                <p class="notice__text">With the current weak Japanese Yen, you get senior-level expertise (35+ years) at a fraction of typical US/EU rates.</p>
+            </div>
+        </section>
+
+        <section class="cards">
+            <a href="resume.html" class="card">
+                <div class="card__icon">📄</div>
+                <h3 class="card__title">Resume</h3>
+                <p class="card__desc">35+ years from embedded to enterprise</p>
+            </a>
+
+            <a href="statement.html" class="card">
+                <div class="card__icon">📝</div>
+                <h3 class="card__title">Personal Statement</h3>
+                <p class="card__desc">Why I seek international remote work</p>
+            </a>
+
+            <a href="https://github.com/obott9" class="card" target="_blank">
+                <div class="card__icon">💻</div>
+                <h3 class="card__title">GitHub</h3>
+                <p class="card__desc">IMEIndicatorClock & more projects</p>
+            </a>
+
+            <a href="Hideki_Obote_Resume_EN.pdf" class="card" download>
+                <div class="card__icon">⬇️</div>
+                <h3 class="card__title">Download PDF</h3>
+                <p class="card__desc">Get my full resume as PDF</p>
+            </a>
+        </section>
+
+        <section class="skills">
+            <h3 class="skills__title">Technical Skills</h3>
+            <div class="skills__list">
+                <span class="skill">C</span>
+                <span class="skill">C++</span>
+                <span class="skill">C#</span>
+                <span class="skill">Swift</span>
+                <span class="skill">Java</span>
+                <span class="skill">.NET</span>
+                <span class="skill">SwiftUI</span>
+                <span class="skill">WinForms</span>
+                <span class="skill">macOS</span>
+                <span class="skill">Windows</span>
+                <span class="skill">iOS</span>
+                <span class="skill">Embedded</span>
+            </div>
+        </section>
+
+        <footer class="footer">
+            <div class="footer__links">
+                <a href="https://github.com/obott9" class="footer__link">GitHub</a>
+                <a href="https://www.linkedin.com/in/hideki-obote" class="footer__link">LinkedIn</a>
+                <a href="https://www.upwork.com/freelancers/~0146733eaa54bd44c8" class="footer__link">Upwork</a>
+                <a href="mailto:obott9.dev@gmail.com" class="footer__link">obott9.dev@gmail.com</a>
+            </div>
+            <p class="footer__copy">© 2025 Hideki Obote — Open to remote opportunities worldwide</p>
+        </footer>
+    </div>
+</body>
+</html>

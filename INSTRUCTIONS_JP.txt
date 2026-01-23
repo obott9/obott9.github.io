@@ -1,0 +1,51 @@
+## GitHub プロフィール README に追加するテキスト
+
+以下を github.com/obott9/obott9 の README.md に追加してください：
+
+---
+
+## 📄 About Me
+
+- 🌐 [Portfolio & Resume](https://obott9.github.io)
+- 📝 [Personal Statement](https://obott9.github.io/statement.html)
+- 💼 [Download Resume (PDF)](https://obott9.github.io/Hideki_Obote_Resume_EN.pdf)
+
+## 🌍 Work Preferences
+
+Due to personal circumstances in Japan, I am exclusively seeking remote work opportunities with international companies.
+
+- 📝 **Communication:** Written English only (Slack, email, GitHub)
+- 🚫 No voice/video calls — I deliver through clear documentation and code
+- 🌐 Open to worldwide remote opportunities
+- ✅ Available for contract or contract-to-hire
+
+## 💰 Why Hire Me?
+
+I communicate through written English only — no voice calls. To prove I deliver quality work through text-based collaboration, I offer competitive rates.
+
+With the current weak Japanese Yen, you get **senior-level expertise (35+ years)** at a fraction of typical US/EU rates.
+
+📩 Contact: obott9.dev@gmail.com
+
+---
+
+## Claude Code でデプロイする手順
+
+1. 以下のファイルを `obott9.github.io` リポジトリにコピー：
+   - index.html
+   - resume.html
+   - statement.html
+   - Hideki_Obote_Resume_EN.pdf
+   - README.md
+
+2. リポジトリを作成してプッシュ：
+   ```bash
+   gh repo create obott9.github.io --public --source=. --remote=origin
+   git add .
+   git commit -m "Initial GitHub Pages deployment"
+   git push -u origin main
+   ```
+
+3. GitHub Settings → Pages → Source: main branch
+
+4. 完了！ https://obott9.github.io でアクセス可能
