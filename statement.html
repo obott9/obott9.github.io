@@ -50,8 +50,19 @@
 
         .nav__back:hover { text-decoration: underline; }
 
+        /* Status Banner */
+        .status-banner {
+            background: linear-gradient(90deg, var(--accent-green), #238636);
+            padding: 10px 16px;
+            border-radius: 6px;
+            margin-bottom: 24px;
+            text-align: center;
+            font-weight: 600;
+            font-size: 0.9rem;
+        }
+
         .header {
-            margin-bottom: 40px;
+            margin-bottom: 32px;
             padding-bottom: 24px;
             border-bottom: 1px solid var(--border);
         }
@@ -74,6 +85,38 @@
         .header__subtitle {
             color: var(--text-secondary);
             font-size: 1.05rem;
+        }
+
+        /* TL;DR */
+        .tldr {
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent);
+            border-radius: 6px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+        }
+
+        .tldr__title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+        }
+
+        .tldr__list {
+            list-style: none;
+        }
+
+        .tldr__list li {
+            padding: 4px 0;
+            font-size: 0.95rem;
+            color: var(--text-primary);
+        }
+
+        .tldr__list li::before {
+            content: '→ ';
+            color: var(--accent-green);
         }
 
         .section {
@@ -132,6 +175,41 @@
             font-size: 0.9rem;
         }
 
+        /* What You Get Table */
+        .value-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin: 20px 0;
+        }
+
+        .value-table th,
+        .value-table td {
+            text-align: left;
+            padding: 12px 16px;
+            border-bottom: 1px solid var(--border);
+        }
+
+        .value-table th {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            text-transform: uppercase;
+            background: var(--bg-secondary);
+        }
+
+        .value-table td {
+            font-size: 0.9rem;
+        }
+
+        .value-table td:first-child {
+            color: var(--text-primary);
+            font-weight: 500;
+        }
+
+        .value-table td:last-child {
+            color: var(--text-secondary);
+        }
+
         .list {
             list-style: none;
             margin: 16px 0;
@@ -144,7 +222,7 @@
         }
 
         .list li::before {
-            content: '→';
+            content: '✓';
             position: absolute;
             left: 0;
             color: var(--accent-green);
@@ -215,6 +293,7 @@
 
         @media (max-width: 600px) {
             .header__title { font-size: 1.6rem; }
+            .value-table th, .value-table td { padding: 10px 12px; font-size: 0.85rem; }
         }
     </style>
 </head>
@@ -224,17 +303,63 @@
             <a href="index.html" class="nav__back">← Back to Home</a>
         </nav>
 
+        <div class="status-banner">
+            🔍 Currently open to remote opportunities (contract / full-time)
+        </div>
+
         <header class="header">
             <p class="header__tag">Personal Statement</p>
             <h1 class="header__title">Why I'm Seeking International Remote Work</h1>
             <p class="header__subtitle">A candid explanation for prospective employers</p>
         </header>
 
+        <!-- TL;DR -->
+        <div class="tldr">
+            <p class="tldr__title">⚡ TL;DR (30 seconds)</p>
+            <ul class="tldr__list">
+                <li>35+ years experience, seeking remote work with international companies</li>
+                <li>Personal circumstances in Japan limit domestic options</li>
+                <li>Written English communication only (no voice/video)</li>
+                <li>Competitive rates due to weak Japanese Yen</li>
+                <li>Happy to discuss details privately if you're considering hiring me</li>
+            </ul>
+        </div>
+
         <section class="section">
             <h2 class="section__title">Summary</h2>
             <p class="text">
                 I am a <strong>self-taught software engineer with 35+ years of experience</strong>, seeking remote work with international companies due to personal circumstances in Japan.
             </p>
+        </section>
+
+        <section class="section">
+            <h2 class="section__title">What You Get</h2>
+            <table class="value-table">
+                <tr>
+                    <th>Benefit</th>
+                    <th>Evidence</th>
+                </tr>
+                <tr>
+                    <td>High motivation</td>
+                    <td>Determined to prove myself in a new environment</td>
+                </tr>
+                <tr>
+                    <td>Commitment</td>
+                    <td>Seeking long-term, stable remote relationships</td>
+                </tr>
+                <tr>
+                    <td>Transparency</td>
+                    <td>I communicate directly and honestly (as you can see)</td>
+                </tr>
+                <tr>
+                    <td>Results-driven</td>
+                    <td>I deliver through code, not politics</td>
+                </tr>
+                <tr>
+                    <td>Cost-effective</td>
+                    <td>Senior expertise at competitive rates (weak ¥)</td>
+                </tr>
+            </table>
         </section>
 
         <section class="section">
@@ -252,16 +377,6 @@
                     If you're considering hiring me and want to know more details, I'm happy to discuss privately. I believe in transparency, but I also believe some things are better explained in conversation than in public documents. Be prepared for a glimpse into some challenging aspects of Japanese corporate culture.
                 </p>
             </div>
-        </section>
-
-        <section class="section">
-            <h2 class="section__title">Why This Matters to You</h2>
-            <ul class="list">
-                <li><strong>High motivation</strong> — I am determined to prove myself in a new environment</li>
-                <li><strong>Commitment</strong> — I seek long-term, stable remote work relationships</li>
-                <li><strong>Transparency</strong> — I communicate directly and honestly (as you can see)</li>
-                <li><strong>Results-driven</strong> — I deliver through code, not politics</li>
-            </ul>
         </section>
 
         <section class="section">
@@ -287,7 +402,7 @@
                 If you're considering hiring me and want to know more details about my situation, <strong>I'm happy to discuss privately</strong>. I believe in transparency, but I also believe some things are better explained in conversation than in public documents.
             </p>
             <p class="text">
-                What I can promise: I will be honest with you, I will work hard, and I will deliver quality code. My 35+ years of experience speaks for itself.
+                What I can promise: I will be honest with you, I will work hard, and I will deliver quality code. My <strong>35+ years of experience</strong> speaks for itself.
             </p>
         </section>
 

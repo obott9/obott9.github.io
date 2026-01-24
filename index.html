@@ -17,6 +17,7 @@
             --accent: #58a6ff;
             --accent-green: #3fb950;
             --accent-yellow: #d29922;
+            --accent-red: #f85149;
             --border: #30363d;
             --font-mono: 'JetBrains Mono', monospace;
             --font-sans: 'Source Sans 3', sans-serif;
@@ -33,13 +34,50 @@
         }
 
         .container {
-            max-width: 860px;
+            max-width: 900px;
             margin: 0 auto;
-            padding: 60px 24px;
+            padding: 50px 24px;
+        }
+
+        /* Status Banner */
+        .status-banner {
+            background: linear-gradient(90deg, var(--accent-green), #238636);
+            padding: 12px 20px;
+            border-radius: 8px;
+            margin-bottom: 32px;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            animation: pulse 2s ease-in-out infinite;
+        }
+
+        @keyframes pulse {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.85; }
+        }
+
+        .status-banner__text {
+            font-weight: 600;
+            font-size: 0.95rem;
+            color: white;
+        }
+
+        .status-banner__dot {
+            width: 10px;
+            height: 10px;
+            background: white;
+            border-radius: 50%;
+            animation: blink 1.5s ease-in-out infinite;
+        }
+
+        @keyframes blink {
+            0%, 100% { opacity: 1; }
+            50% { opacity: 0.3; }
         }
 
         .header {
-            margin-bottom: 48px;
+            margin-bottom: 32px;
             animation: fadeIn 0.6s ease-out;
         }
 
@@ -63,6 +101,35 @@
             font-weight: 400;
         }
 
+        /* TL;DR Box */
+        .tldr {
+            background: var(--bg-secondary);
+            border: 2px solid var(--accent);
+            border-radius: 8px;
+            padding: 20px 24px;
+            margin-bottom: 32px;
+            animation: fadeIn 0.6s ease-out 0.1s both;
+        }
+
+        .tldr__title {
+            font-family: var(--font-mono);
+            font-size: 0.8rem;
+            color: var(--accent);
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .tldr__text {
+            font-size: 1.05rem;
+            color: var(--text-primary);
+            line-height: 1.7;
+        }
+
+        .tldr__text strong {
+            color: var(--accent-green);
+        }
+
         .stats {
             display: flex;
             gap: 32px;
@@ -70,7 +137,7 @@
             padding: 20px 0;
             border-top: 1px solid var(--border);
             border-bottom: 1px solid var(--border);
-            animation: fadeIn 0.6s ease-out 0.1s both;
+            animation: fadeIn 0.6s ease-out 0.15s both;
         }
 
         .stat__number {
@@ -85,21 +152,36 @@
             color: var(--text-secondary);
         }
 
-        .about {
-            margin-bottom: 40px;
+        /* Value Props */
+        .value-props {
+            display: grid;
+            grid-template-columns: repeat(2, 1fr);
+            gap: 12px;
+            margin: 24px 0;
             animation: fadeIn 0.6s ease-out 0.2s both;
         }
 
-        .about__text {
-            color: var(--text-secondary);
-            font-size: 1.05rem;
-            max-width: 680px;
+        .value-prop {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            padding: 14px 16px;
+            border-radius: 6px;
+            font-size: 0.9rem;
         }
 
-        .about__text strong {
+        .value-prop__icon {
+            margin-right: 8px;
+        }
+
+        .value-prop strong {
             color: var(--text-primary);
         }
 
+        .value-prop span {
+            color: var(--text-secondary);
+        }
+
+        /* Notice boxes */
         .notice {
             background: var(--bg-secondary);
             border: 1px solid var(--border);
@@ -129,12 +211,101 @@
             font-size: 0.95rem;
         }
 
+        /* Project Cards with Results */
+        .section-title {
+            font-family: var(--font-mono);
+            font-size: 0.85rem;
+            color: var(--text-secondary);
+            margin: 40px 0 20px;
+            text-transform: uppercase;
+            letter-spacing: 0.1em;
+        }
+
+        .project-card {
+            background: var(--bg-secondary);
+            border: 1px solid var(--border);
+            border-radius: 8px;
+            padding: 24px;
+            margin-bottom: 16px;
+            animation: fadeIn 0.6s ease-out 0.3s both;
+        }
+
+        .project-card__header {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            margin-bottom: 16px;
+        }
+
+        .project-card__name {
+            font-size: 1.1rem;
+            font-weight: 600;
+        }
+
+        .project-card__tech {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent);
+            background: var(--bg-card);
+            padding: 4px 10px;
+            border-radius: 4px;
+        }
+
+        .project-card__section {
+            margin-bottom: 12px;
+        }
+
+        .project-card__label {
+            font-family: var(--font-mono);
+            font-size: 0.75rem;
+            color: var(--accent-yellow);
+            text-transform: uppercase;
+            margin-bottom: 4px;
+        }
+
+        .project-card__label--green { color: var(--accent-green); }
+
+        .project-card__text {
+            font-size: 0.9rem;
+            color: var(--text-secondary);
+        }
+
+        .project-card__results {
+            display: flex;
+            flex-wrap: wrap;
+            gap: 8px;
+            margin-top: 8px;
+        }
+
+        .result-badge {
+            background: rgba(63, 185, 80, 0.15);
+            border: 1px solid var(--accent-green);
+            color: var(--accent-green);
+            padding: 4px 10px;
+            border-radius: 4px;
+            font-size: 0.8rem;
+            font-family: var(--font-mono);
+        }
+
+        .project-card__link {
+            display: inline-flex;
+            align-items: center;
+            gap: 6px;
+            margin-top: 12px;
+            color: var(--accent);
+            text-decoration: none;
+            font-size: 0.85rem;
+        }
+
+        .project-card__link:hover { text-decoration: underline; }
+
+        /* Cards */
         .cards {
             display: grid;
             grid-template-columns: repeat(2, 1fr);
             gap: 16px;
-            margin: 40px 0;
-            animation: fadeIn 0.6s ease-out 0.3s both;
+            margin: 24px 0;
+            animation: fadeIn 0.6s ease-out 0.4s both;
         }
 
         .card {
@@ -156,9 +327,10 @@
         .card__title { font-size: 1rem; font-weight: 600; margin-bottom: 6px; }
         .card__desc { font-size: 0.85rem; color: var(--text-secondary); }
 
+        /* Skills */
         .skills {
             margin: 40px 0;
-            animation: fadeIn 0.6s ease-out 0.4s both;
+            animation: fadeIn 0.6s ease-out 0.5s both;
         }
 
         .skills__title {
@@ -190,7 +362,7 @@
             margin-top: 60px;
             padding-top: 24px;
             border-top: 1px solid var(--border);
-            animation: fadeIn 0.6s ease-out 0.5s both;
+            animation: fadeIn 0.6s ease-out 0.6s both;
         }
 
         .footer__links {
@@ -222,17 +394,35 @@
         @media (max-width: 600px) {
             .stats { flex-direction: column; gap: 16px; }
             .cards { grid-template-columns: 1fr; }
+            .value-props { grid-template-columns: 1fr; }
             .header__name { font-size: 2rem; }
+            .project-card__header { flex-direction: column; align-items: flex-start; gap: 8px; }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <!-- Status Banner -->
+        <div class="status-banner">
+            <span class="status-banner__dot"></span>
+            <span class="status-banner__text">🔍 Currently open to remote opportunities (contract / full-time)</span>
+        </div>
+
         <header class="header">
             <p class="header__tag">$ whoami</p>
             <h1 class="header__name">Hideki Obote</h1>
             <p class="header__title">Senior Software Engineer | Swift & C# | macOS & Windows</p>
         </header>
+
+        <!-- TL;DR -->
+        <div class="tldr">
+            <p class="tldr__title">⚡ TL;DR</p>
+            <p class="tldr__text">
+                <strong>35+ years</strong> of software development | <strong>Self-taught</strong> since Sharp X68000 era | 
+                Specialist in <strong>cross-platform desktop apps</strong> | 
+                Proven track record of <strong>rescuing failing projects</strong> and <strong>reducing costs by 50%+</strong>
+            </p>
+        </div>
 
         <div class="stats">
             <div class="stat">
@@ -240,35 +430,101 @@
                 <div class="stat__label">Years Experience</div>
             </div>
             <div class="stat">
-                <div class="stat__number">X68000</div>
-                <div class="stat__label">Self-Taught Since</div>
+                <div class="stat__number">50%+</div>
+                <div class="stat__label">Cost Reduction</div>
             </div>
             <div class="stat">
-                <div class="stat__number">100%</div>
-                <div class="stat__label">Remote Ready</div>
+                <div class="stat__number">3+</div>
+                <div class="stat__label">Projects Rescued</div>
             </div>
         </div>
 
-        <section class="about">
-            <p class="about__text">
-                My journey began in the early 1980s when I went to <strong>Akihabara</strong> to buy a PC-8801 but came home with a <strong>PC-8001</strong> on a loan instead. Later, I taught myself C programming on a <strong>Sharp X68000</strong>. From those humble beginnings, I've built everything from embedded automotive systems to enterprise cloud applications.
-            </p>
-
-            <div class="notice notice--green">
-                <p class="notice__title">📝 Communication</p>
-                <p class="notice__text">Written English only (Slack, email, GitHub). No voice/video calls — I deliver through clear documentation and code.</p>
+        <!-- Value Props -->
+        <div class="value-props">
+            <div class="value-prop">
+                <span class="value-prop__icon">✅</span>
+                <strong>Senior expertise</strong> <span>— 35+ years hands-on coding</span>
             </div>
-
-            <div class="notice notice--yellow">
-                <p class="notice__title">💰 Why Hire Me?</p>
-                <p class="notice__text">With the current weak Japanese Yen, you get senior-level expertise (35+ years) at a fraction of typical US/EU rates.</p>
+            <div class="value-prop">
+                <span class="value-prop__icon">✅</span>
+                <strong>Cross-platform</strong> <span>— Native macOS & Windows</span>
             </div>
-        </section>
+            <div class="value-prop">
+                <span class="value-prop__icon">✅</span>
+                <strong>Problem solver</strong> <span>— Rescued "impossible" projects</span>
+            </div>
+            <div class="value-prop">
+                <span class="value-prop__icon">✅</span>
+                <strong>Cost-effective</strong> <span>— Competitive rates (weak ¥)</span>
+            </div>
+        </div>
 
+        <div class="notice notice--green">
+            <p class="notice__title">📝 Communication</p>
+            <p class="notice__text">Written English only (Slack, email, GitHub). No voice/video calls — I deliver through clear documentation and code.</p>
+        </div>
+
+        <div class="notice notice--yellow">
+            <p class="notice__title">💰 Why Hire Me?</p>
+            <p class="notice__text">With the current weak Japanese Yen, you get senior-level expertise (35+ years) at a fraction of typical US/EU rates.</p>
+        </div>
+
+        <!-- Projects with Before/After -->
+        <h2 class="section-title">🚀 Featured Projects (with Results)</h2>
+
+        <div class="project-card">
+            <div class="project-card__header">
+                <h3 class="project-card__name">IMEIndicatorClock — macOS</h3>
+                <span class="project-card__tech">Swift / SwiftUI</span>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label">Problem</p>
+                <p class="project-card__text">macOS users struggle to identify current input method at a glance, causing frequent typing errors when switching between Japanese and English.</p>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label label--green">Solution</p>
+                <p class="project-card__text">Built a menu bar app displaying IME status with visual clock indicator.</p>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label project-card__label--green">Results</p>
+                <div class="project-card__results">
+                    <span class="result-badge">18+ languages</span>
+                    <span class="result-badge">MacUpdate listed</span>
+                    <span class="result-badge">Zero dependencies</span>
+                </div>
+            </div>
+            <a href="https://github.com/obott9/IMEIndicatorClock" class="project-card__link" target="_blank">View Repository →</a>
+        </div>
+
+        <div class="project-card">
+            <div class="project-card__header">
+                <h3 class="project-card__name">IMEIndicatorClockW — Windows</h3>
+                <span class="project-card__tech">C# / .NET 8</span>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label">Problem</p>
+                <p class="project-card__text">Windows users needed the same IME visibility solution available on macOS.</p>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label">Solution</p>
+                <p class="project-card__text">Rebuilt the concept in C#/.NET 8 with Windows-native UI, demonstrating true cross-platform capability.</p>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label project-card__label--green">Results</p>
+                <div class="project-card__results">
+                    <span class="result-badge">Feature parity</span>
+                    <span class="result-badge">Clean MVVM</span>
+                    <span class="result-badge">窓の杜 listed</span>
+                </div>
+            </div>
+            <a href="https://github.com/obott9/IMEIndicatorClockW" class="project-card__link" target="_blank">View Repository →</a>
+        </div>
+
+        <!-- Navigation Cards -->
         <section class="cards">
             <a href="resume.html" class="card">
                 <div class="card__icon">📄</div>
-                <h3 class="card__title">Resume</h3>
+                <h3 class="card__title">Full Resume</h3>
                 <p class="card__desc">35+ years from embedded to enterprise</p>
             </a>
 
@@ -281,7 +537,7 @@
             <a href="https://github.com/obott9" class="card" target="_blank">
                 <div class="card__icon">💻</div>
                 <h3 class="card__title">GitHub</h3>
-                <p class="card__desc">IMEIndicatorClock & more projects</p>
+                <p class="card__desc">All my public repositories</p>
             </a>
 
             <a href="Hideki_Obote_Resume_EN.pdf" class="card" download>
@@ -299,7 +555,7 @@
                 <span class="skill">C#</span>
                 <span class="skill">Swift</span>
                 <span class="skill">Java</span>
-                <span class="skill">.NET</span>
+                <span class="skill">.NET 8</span>
                 <span class="skill">SwiftUI</span>
                 <span class="skill">WinForms</span>
                 <span class="skill">macOS</span>
