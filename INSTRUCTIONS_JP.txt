@@ -15,13 +15,13 @@
 Due to personal circumstances in Japan, I am exclusively seeking remote work opportunities with international companies.
 
 - 📝 **Communication:** Written English only (Slack, email, GitHub)
-- 🚫 No voice/video calls — I deliver through clear documentation and code
+- ✍️ Async-first: clear documentation, clean code, thorough PR reviews
 - 🌐 Open to worldwide remote opportunities
 - ✅ Available for contract or contract-to-hire
 
 ## 💰 Why Hire Me?
 
-I communicate through written English only — no voice calls. To prove I deliver quality work through text-based collaboration, I offer competitive rates.
+I specialize in async-first collaboration — clear documentation, well-structured PRs, and responsive text communication. Combined with the current weak Japanese Yen, you get senior expertise at competitive rates.
 
 With the current weak Japanese Yen, you get **senior-level expertise (35+ years)** at a fraction of typical US/EU rates.
 
