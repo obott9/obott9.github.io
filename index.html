@@ -416,7 +416,7 @@
         <header class="header">
             <p class="header__tag">$ whoami</p>
             <h1 class="header__name">Hideki Obote</h1>
-            <p class="header__title">Senior Software Engineer | Swift & C# | macOS & Windows</p>
+            <p class="header__title">Senior Software Engineer | Swift & C# & C++ | macOS & Windows</p>
         </header>
 
         <!-- TL;DR -->
@@ -628,6 +628,31 @@
             <a href="https://github.com/obott9/FileTabOpenerM" class="project-card__link" target="_blank">View Repository →</a>
         </div>
 
+        <div class="project-card">
+            <div class="project-card__header">
+                <h3 class="project-card__name">FileTabOpenerW — Windows Native</h3>
+                <span class="project-card__tech">C++ / Win32 API</span>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label">Problem</p>
+                <p class="project-card__text">The Python version requires a Python runtime and uses SendInput keystroke simulation, which is unreliable and conflicts with user input during tab operations.</p>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label">Solution</p>
+                <p class="project-card__text">Rebuilt in pure C++17 with Win32 API — no external frameworks, single .exe. Uses UI Automation COM API to directly control Explorer tabs without global keystroke simulation.</p>
+            </div>
+            <div class="project-card__section">
+                <p class="project-card__label project-card__label--green">Results</p>
+                <div class="project-card__results">
+                    <span class="result-badge">5 languages</span>
+                    <span class="result-badge">UIA direct control</span>
+                    <span class="result-badge">Dark mode</span>
+                    <span class="result-badge">Zero dependencies</span>
+                </div>
+            </div>
+            <a href="https://github.com/obott9/FileTabOpenerW" class="project-card__link" target="_blank">View Repository →</a>
+        </div>
+
         <!-- Navigation Cards -->
         <section class="cards">
             <a href="resume.html" class="card">
@@ -665,6 +690,7 @@
                 <span class="skill">Java</span>
                 <span class="skill">.NET 8</span>
                 <span class="skill">SwiftUI</span>
+                <span class="skill">Win32 API</span>
                 <span class="skill">WinForms</span>
                 <span class="skill">macOS</span>
                 <span class="skill">Windows</span>
@@ -685,6 +711,8 @@
         <footer class="footer">
             <div class="footer__links">
                 <a href="https://github.com/sponsors/obott9" class="footer__link" style="color: var(--accent-red);">❤️ Sponsor</a>
+                <a href="https://ko-fi.com/obott9" class="footer__link" style="color: var(--accent-red);">☕ Ko-fi</a>
+                <a href="https://buymeacoffee.com/obott9" class="footer__link" style="color: var(--accent-yellow);">☕ Buy Me a Coffee</a>
                 <a href="https://github.com/obott9" class="footer__link">GitHub</a>
                 <a href="https://www.linkedin.com/in/hideki-obote-1b33b43a7/" class="footer__link">LinkedIn</a>
                 <a href="https://arc.dev/@hidekiobote" class="footer__link">Arc.dev</a>
